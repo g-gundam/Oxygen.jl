@@ -55,6 +55,7 @@ end
     docs    :: Documenation     = Documenation()
     cron    :: CronContext      = CronContext()
     tasks   :: TasksContext     = TasksContext()
+    context :: Ref{Nullable{Any}} = Ref{Nullable{Any}}(nothing)         ## Represents 
 end
 
 Base.isopen(service::Service)   = !isnothing(service.server[]) && isopen(service.server[])

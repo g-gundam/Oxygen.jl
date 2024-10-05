@@ -12,6 +12,15 @@ function resetstate()
     end
 end
 
+"""
+This function ruturns the current application context object. This method does not
+provide any locks or synchronization, so it should be used with caution in multi-threaded environments.
+"""
+function context()
+    return CONTEXT[].context[]
+end
+
+
 function serve(; kwargs...) 
     async = Base.get(kwargs, :async, false)
     try

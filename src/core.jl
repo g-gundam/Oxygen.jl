@@ -86,8 +86,11 @@ function serve(ctx::Context;
     show_banner = true,
     docs_path   = "/docs",
     schema_path = "/schema",
+    context     = nothing,
     external_url = nothing,
     kwargs...) :: Server
+
+    ctx.context[] = context
 
     # set the external url if it's passed
     if !isnothing(external_url)

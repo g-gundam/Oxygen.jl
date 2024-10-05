@@ -32,7 +32,7 @@ export  @oxidise, @get, @post, @put, @patch, @delete, @route,
         @staticfiles, @dynamicfiles, @cron, @repeat, @stream, @websocket,
         get, post, put, patch, delete, route, stream, websocket,
         serve, serveparallel, terminate, internalrequest, 
-        resetstate, instance, staticfiles, dynamicfiles,
+        resetstate, instance, context, staticfiles, dynamicfiles,
         # Util
         redirect, queryparams, formdata, format_sse_message,
         html, text, json, file, xml, js, css, binary,
