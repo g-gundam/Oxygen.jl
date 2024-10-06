@@ -17,7 +17,8 @@ This function ruturns the current application context object. This method does n
 provide any locks or synchronization, so it should be used with caution in multi-threaded environments.
 """
 function context()
-    return CONTEXT[].context[]
+    app_context = CONTEXT[].app_context[]
+    return isnothing(app_context) ? nothing : app_context.context
 end
 
 

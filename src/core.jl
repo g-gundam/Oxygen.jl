@@ -17,7 +17,7 @@ include("util.jl");         @reexport using .Util
 include("types.jl");        @reexport using .Types 
 include("constants.jl");    @reexport using .Constants
 include("handlers.jl");     @reexport using .Handlers
-include("context.jl");      @reexport using .AppContext
+include("context.jl");      @reexport using .AppContextManager
 include("middleware.jl");   @reexport using .Middleware
 include("routerhof.jl");    @reexport using .RouterHOF
 include("cron.jl");         @reexport using .Cron
@@ -90,7 +90,9 @@ function serve(ctx::Context;
     external_url = nothing,
     kwargs...) :: Server
 
-    ctx.context[] = context
+    if !isnothing(context)
+        ctx.app_context[] = AppContext(context)
+    end
 
     # set the external url if it's passed
     if !isnothing(external_url)

@@ -1,7 +1,7 @@
 module RepeatTasks
 using HTTP
 using ..Types: RegisteredTask, TaskDefinition, ActiveTask
-using ..AppContext: TasksContext
+using ..AppContextManager: TasksContext
 
 export starttasks, stoptasks, cleartasks, task
 

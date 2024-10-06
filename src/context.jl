@@ -1,4 +1,4 @@
-module AppContext
+module AppContextManager
 import Base: @kwdef, wait, close, isopen
 import Base.Threads: ReentrantLock
 using HTTP
@@ -55,7 +55,7 @@ end
     docs    :: Documenation     = Documenation()
     cron    :: CronContext      = CronContext()
     tasks   :: TasksContext     = TasksContext()
-    context :: Ref{Nullable{Any}} = Ref{Nullable{Any}}(nothing)         ## Represents 
+    app_context :: Ref{Any} = Ref{Any}(nothing) # This stores a reference to an AppContext{T} object
 end
 
 Base.isopen(service::Service)   = !isnothing(service.server[]) && isopen(service.server[])

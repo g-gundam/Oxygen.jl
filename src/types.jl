@@ -14,9 +14,16 @@ using ..Util
 export Server, History, HTTPTransaction, TaggedRoute, Nullable, 
     ActiveTask, RegisteredTask, TaskDefinition,
     ActiveCron, RegisteredCron, CronDefinition,
-    Param, isrequired, LazyRequest, headers, pathparams, queryvars, jsonbody, formbody, textbody
+    Param, isrequired, LazyRequest, 
+    headers, pathparams, queryvars, jsonbody, formbody, textbody,
+    AppContext
 
 const Nullable{T} = Union{T, Nothing}
+
+# Represents the application context 
+struct AppContext{T}
+    context::T
+end
 
 # Represents a running task
 struct ActiveTask

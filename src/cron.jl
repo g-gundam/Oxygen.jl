@@ -3,7 +3,7 @@ using Base: @kwdef
 using Dates
 
 using ..Types: ActiveCron, RegisteredCron, Nullable
-using ..AppContext: CronContext
+using ..AppContextManager: CronContext
 
 export cron, startcronjobs, stopcronjobs, clearcronjobs
 
